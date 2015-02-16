@@ -1,0 +1,20 @@
+{{! Super nasty hack because SVG's don't work properly with classNameBindings yet}}
+{{#unless item.selected}}
+  <g style="fill-opacity:0.25">
+      {{#each data in item.data}}
+        {{#unless data.circle}}
+            <path {{bind-attr d=data.path fill=data.color}}></path>
+        {{else}}
+            <circle r=12 {{bind-attr cx=data.cx cy=data.cy fill=data.color}}></circle>
+        {{/unless}}
+      {{/each}}
+  </g>
+{{else}}
+    {{#each data in item.data}}
+        {{#unless data.circle}}
+            <path {{bind-attr d=data.path fill=data.color}}></path>
+        {{else}}
+            <circle r=12 {{bind-attr cx=data.cx cy=data.cy fill=data.color}}></circle>
+        {{/unless}}
+    {{/each}}
+{{/unless}}
